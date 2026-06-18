@@ -1,0 +1,14 @@
+body { background-color: #05020a; color: #fff; padding: 50px; }
+.container { max-width: 1000px; margin: auto; }
+
+.section-row { display: flex; gap: 40px; margin-bottom: 80px; align-items: start; }
+/* দ্বিতীয় অংশের জন্য রিভার্স লেআউট */
+.section-row.reverse { flex-direction: row-reverse; }
+
+.text-side { flex: 1; padding: 20px; }
+.grid-side { flex: 2; display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+
+.box-small { height: 150px; background: #1a0b33; border: 1px solid #9d66ff; border-radius: 10px; }
+.box-large { height: 200px; background: #1a0b33; border: 1px solid #9d66ff; border-radius: 10px; grid-column: span 3; }
+
+h3 { color: #9d66ff; margin-bottom: 10px; }

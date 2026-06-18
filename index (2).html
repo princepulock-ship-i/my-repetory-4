@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfolio Layout</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background:
+    radial-gradient(circle at 15% 10%, rgba(130, 58, 255, 0.38), transparent 28%),
+    radial-gradient(circle at 85% 25%, rgba(88, 28, 135, 0.35), transparent 30%),
+    radial-gradient(circle at 50% 100%, rgba(168, 85, 247, 0.22), transparent 35%),
+    linear-gradient(135deg, #020008 0%, #090216 28%, #16072f 55%, #05000f 100%);
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 70px 70px;
+  opacity: 0.25;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at center, transparent 45%, rgba(0,0,0,0.55) 100%);
+  z-index: 0;
+}
+
+.portfolio {
+  width: 100%;
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 80px 60px;
+  position: relative;
+  z-index: 1;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 14px;
+  background: #222;
+  cursor: zoom-in;
+}
+
+/* BRAND IDENTITY SECTION */
+.brand-wrap {
+  display: block;
+}
+
+.brand-content {
+  width: 900px;
+  flex-shrink: 0;
+}
+
+.brand-cover-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 90px;
+}
+
+.brand-cover {
+  width: 900px;
+  aspect-ratio: 1920 / 1080;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.brand-cover-text {
+  width: 420px;
+  color: white;
+  transform: translate(180px, 800px);
+}
+
+.brand-cover-text h2 {
+  font-size: 52px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.brand-cover-text p {
+  font-size: 24px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.brand-top-row {
+  width: 900px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: -120px;
+  margin-bottom: 90px;
+}
+
+.brand-img1,
+.brand-img2,
+.brand-img3 {
+  width: 283px;
+  height: 283px;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.brand-wide {
+  width: 900px;
+  aspect-ratio: 7680 / 4320;
+  margin-left: -120px;
+  margin-bottom: 90px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.tomfort-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+  margin-left: 180px;
+}
+
+.tomfort-text {
+  width: 390px;
+  color: white;
+  margin-top: 100px;
+  flex-shrink: 0;
+}
+
+.tomfort-text h2 {
+  font-size: 48px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.tomfort-text p {
+  font-size: 24px;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+.tomfort-content {
+  width: 900px;
+}
+
+.brand-right-row {
+  display: flex;
+  gap: 25px;
+  width: 900px;
+  margin-bottom: 90px;
+}
+
+.brand-small {
+  width: calc((900px - 50px) / 3);
+  height: calc((900px - 50px) / 3);
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.brand-banner {
+  width: 900px;
+  aspect-ratio: 7900 / 4320;
+  border-radius: 14px;
+}
+
+/* SECTION TEXT */
+.image-text-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.text-box {
+  width: 360px;
+  color: white;
+  margin-top: -120px;
+  margin-left: 150px;
+}
+
+.text-box h2 {
+  font-size: 45px;
+  margin-bottom: 18px;
+}
+
+.text-box p {
+  font-size: 39px;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+.section2-wrap {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.section2-text {
+  width: 350px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.section2-text h2 {
+  font-size: 52px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.section2-text p {
+  font-size: 24px;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+.section3-wrap,
+.section4-wrap,
+.section5-wrap,
+.section6-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+}
+
+.section3-text,
+.section4-text,
+.section5-text,
+.section6-text {
+  color: white;
+  flex-shrink: 0;
+}
+
+.section3-text {
+  width: 420px;
+  margin-top: 80px;
+}
+
+.section4-text {
+  width: 380px;
+  margin-top: 120px;
+}
+
+.section5-text {
+  width: 420px;
+  margin-top: 40px;
+  margin-left: -120px;
+}
+
+.section6-text {
+  width: 380px;
+  margin-top: 10px;
+  margin-left: 200px;
+}
+
+.section3-text h2,
+.section4-text h2,
+.section5-text h2,
+.section6-text h2 {
+  font-size: 48px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.section3-text p,
+.section4-text p,
+.section5-text p,
+.section6-text p {
+  font-size: 24px;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+.section {
+  width: 100%;
+  margin-bottom: 180px;
+  clear: both;
+}
+
+.center,
+.left,
+.right {
+  width: 100%;
+  display: flex;
+}
+
+.center {
+  justify-content: center;
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+/* HERO */
+.hero-wrap {
+  justify-content: flex-start;
+  padding-left: 210px;
+  margin-bottom: 70px;
+}
+
+.hero,
+.last-hero {
+  width: 980px;
+  aspect-ratio: 1920 / 1080;
+}
+
+/* GRID */
+.square-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 220px);
+  gap: 24px;
+}
+
+.square {
+  aspect-ratio: 1 / 1;
+}
+
+.big-square-grid {
+  grid-template-columns: repeat(3, 300px);
+  gap: 24px;
+}
+
+.big-square-grid .square {
+  width: 300px;
+  height: 300px;
+  transform: translateX(120px);
+}
+
+.portfolio-grid {
+  grid-template-columns: repeat(3, 320px);
+  gap: 28px;
+  transform: translateX(-120px);
+}
+
+.portfolio-grid .square {
+  width: 300px;
+  height: 300px;
+}
+
+/* A4 */
+.a4 {
+  aspect-ratio: 2480 / 3508;
+}
+
+.a4-two {
+  display: grid;
+  grid-template-columns: repeat(2, 360px);
+  gap: 36px;
+}
+
+.a4-three {
+  display: grid;
+  grid-template-columns: repeat(3, 260px);
+  gap: 35px;
+  justify-content: flex-start;
+  transform: translateX(11px);
+}
+
+/* LARGE */
+.large {
+  width: 900px;
+  aspect-ratio: 7680 / 4320;
+}
+
+.large-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.plot-banner {
+  width: 900px;
+  aspect-ratio: 12960 / 4320;
+}
+
+.slot-1-3 {
+  margin-bottom: 28px;
+}
+
+.slot-4-5 {
+  margin-bottom: 28px;
+}
+
+.right .square-grid {
+  margin-right: 55px;
+}
+
+.mixed-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 35px;
+  margin-right: 55px;
+}
+
+.mixed-row {
+  display: grid;
+  grid-template-columns: 220px 300px 220px;
+  gap: 24px;
+  align-items: center;
+}
+
+.mixed-row .square {
+  width: 220px;
+  height: 220px;
+}
+
+.mixed-row .a4 {
+  width: 300px;
+  height: auto;
+}
+
+.mixed-row-2 {
+  display: grid;
+  grid-template-columns: repeat(3, 220px);
+  gap: 24px;
+}
+
+.last-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.last-hero {
+  margin-bottom: 55px;
+}
+
+/* PHONE Z-PATTERN RESPONSIVE */
+@media (max-width: 768px) {
+  .portfolio {
+    max-width: 100%;
+    padding: 35px 14px;
+  }
+
+  .section {
+    margin-bottom: 90px;
+  }
+
+  .brand-cover-row {
+    justify-content: center;
+    margin-bottom: 45px;
+  }
+
+  .brand-cover {
+    width: 78%;
+    max-width: 360px;
+  }
+
+  .brand-cover-text {
+    width: 42%;
+    transform: translate(10px, 115px);
+    text-align: left;
+  }
+
+  .brand-cover-text h2 {
+    font-size: 18px;
+  }
+
+  .brand-cover-text p {
+    font-size: 8px;
+    line-height: 1.4;
+  }
+
+  .brand-content {
+    width: 100%;
+  }
+
+  .brand-top-row {
+    width: 48%;
+    margin-left: 4%;
+    margin-bottom: 35px;
+  }
+
+  .brand-img1,
+  .brand-img2,
+  .brand-img3 {
+    width: 31%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .brand-wide {
+    width: 48%;
+    margin-left: 4%;
+    margin-bottom: 35px;
+  }
+
+  .tomfort-wrap {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    margin-left: 16%;
+  }
+
+  .tomfort-text {
+    width: 30%;
+    margin-top: 35px;
+  }
+
+  .tomfort-text h2 {
+    font-size: 18px;
+  }
+
+  .tomfort-text p {
+    font-size: 8px;
+    line-height: 1.4;
+  }
+
+  .tomfort-content {
+    width: 48%;
+  }
+
+  .tomfort-content .brand-right-row {
+    width: 100%;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .brand-small {
+    width: calc((100% - 16px) / 3);
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .brand-banner {
+    width: 100%;
+  }
+}
+
+/* LIGHTBOX */
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+#lightbox-img {
+  max-width: 92%;
+  max-height: 92%;
+  object-fit: contain;
+  cursor: default;
+}
+
+#close {
+  position: fixed;
+  top: 25px;
+  right: 40px;
+  font-size: 45px;
+  color: white;
+  cursor: pointer;
+  z-index: 10000;
+}
+</style>
+</head>
+
+<body>
+
+<main class="portfolio">
+
+<section class="section brand-section">
+  <div class="brand-cover-row">
+    <img class="zoom-img brand-cover" src="visual identy cover.png" alt="Brand Identity Cover">
+
+    <div class="brand-cover-text">
+      <h2>Visual Identity System</h2>
+      <p>
+        Brand identity design, logo usage, visual direction,
+        mockups, and complete creative guidelines for building
+        a consistent and memorable brand presence.
+      </p>
+    </div>
+  </div>
+
+  <div class="brand-wrap">
+    <div class="brand-content">
+      <div class="brand-top-row">
+        <img class="zoom-img brand-img1" src="brand identity 5.png" alt="Brand 1">
+        <img class="zoom-img brand-img2" src="brand identity 4.png" alt="Brand 2">
+        <img class="zoom-img brand-img3" src="brand identity.png" alt="Brand 3">
+      </div>
+
+      <img class="zoom-img brand-wide" src="brand identity 2 copy.png" alt="Brand 4">
+      <img class="zoom-img brand-wide" src="brand identity 3.png" alt="Brand 5">
+
+      <div class="tomfort-wrap">
+        <div class="tomfort-text">
+          <h2>Merchandise Brand Mockups</h2>
+          <p>
+            Premium apparel mockups, product branding,
+            fashion merchandise visuals, and brand identity
+            applications designed for modern lifestyle brands.
+          </p>
+        </div>
+
+        <div class="tomfort-content">
+          <div class="brand-right-row">
+            <img class="zoom-img brand-small" src="cap mock 1.png" alt="Brand 6">
+            <img class="zoom-img brand-small" src="hoodie mock up f.png" alt="Brand 7">
+            <img class="zoom-img brand-small" src="brand logo tom.png" alt="Brand 8">
+          </div>
+
+          <img class="zoom-img brand-banner" src="topfort mockp.png big 1.png" alt="Brand 9">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="center hero-wrap">
+    <img class="zoom-img hero" src="social midia png.png" alt="Hero">
+  </div>
+
+  <div class="left slot-1-3">
+    <div class="square-grid">
+      <img class="zoom-img square" src="food poster.jpg" alt="1">
+      <img class="zoom-img square" src="PIZZA POSTER.jpg" alt="2">
+      <img class="zoom-img square" src="coffee poster.jpg" alt="3">
+    </div>
+  </div>
+
+  <div class="image-text-row">
+    <div class="a4-two">
+      <img class="zoom-img a4" src="shawarma 1.png" alt="4">
+      <img class="zoom-img a4" src="shawarma 3.png" alt="5">
+    </div>
+
+    <div class="text-box">
+      <h2>Creative Food Poster Design</h2>
+      <p>
+        I create modern social media posters, food ads, branding visuals,
+        and promotional designs for businesses.
+      </p>
+    </div>
+  </div>
+
+  <div class="left">
+    <div class="large-stack">
+      <img class="zoom-img large" src="shawarma 2.png" alt="6">
+      <img class="zoom-img large" src="food brand.png" alt="7">
+      <img class="zoom-img large" src="food brand 2.png" alt="8">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section2-wrap">
+    <div class="section2-text">
+      <h2>Creative Product Advertisement</h2>
+      <p>
+        High-converting product posters,
+        social media campaigns,
+        commercial advertisements,
+        and promotional creatives
+        designed to increase brand visibility and sales.
+      </p>
+    </div>
+
+    <div class="square-grid big-square-grid">
+      <img class="zoom-img square" src="smart watch.jpg" alt="9">
+      <img class="zoom-img square" src="smart watch 2.jpg" alt="10">
+      <img class="zoom-img square" src="smart phone poster.jpg" alt="11">
+      <img class="zoom-img square" src="SUNSCREAM POSTER.jpg" alt="12">
+      <img class="zoom-img square" src="GYM POSTER 2.jpg" alt="13">
+      <img class="zoom-img square" src="perfume social media poster.jpg" alt="14">
+    </div>
+  </div>
+</section>
+
+<section class="section left">
+  <div class="section3-wrap">
+    <div class="a4-two">
+      <img class="zoom-img a4" src="cloth1.png" alt="15">
+      <img class="zoom-img a4" src="cloth3.png" alt="16">
+      <img class="zoom-img a4" src="cloth2.png" alt="17">
+      <img class="zoom-img a4" src="cloth 5.png" alt="18">
+      <img class="zoom-img a4" src="cloth 6.png" alt="19">
+      <img class="zoom-img a4" src="cloth.png" alt="20">
+    </div>
+
+    <div class="section3-text">
+      <h2>Fashion Brand Posters</h2>
+      <p>
+        Modern clothing advertisements,
+        fashion campaign visuals,
+        apparel posters, and product-based designs for clothing brands.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section4-wrap">
+    <div class="section4-text">
+      <h2>Real Estate Poster Design</h2>
+      <p>
+        Property advertisements, land project banners,
+        real estate social media posts, and modern housing campaign visuals.
+      </p>
+    </div>
+
+    <div class="mixed-right">
+      <div class="mixed-row">
+        <img class="zoom-img square" src="plot 1.jpg" alt="21">
+        <img class="zoom-img a4" src="real estate poster 1 balck.png" alt="22">
+        <img class="zoom-img square" src="plot 3.png" alt="23">
+      </div>
+
+      <div class="mixed-row-2">
+        <img class="zoom-img square" src="REAL ESTATE 2 POSTER.png" alt="24">
+        <img class="zoom-img square" src="real estate 3 poster.png" alt="25">
+        <img class="zoom-img square" src="plot 2.png" alt="26">
+      </div>
+
+      <img class="zoom-img plot-banner" src="plot 4.png" alt="27">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section5-wrap">
+    <div class="square-grid portfolio-grid">
+      <img class="zoom-img square" src="TRAVEL POSTER.jpg" alt="28">
+      <img class="zoom-img square" src="TRAVEL POSTER 2.jpg" alt="29">
+      <img class="zoom-img square" src="travel poster 3.jpg" alt="30">
+      <img class="zoom-img square" src="TRAVELPOSTE 4.jpg" alt="31">
+      <img class="zoom-img square" src="business markiting poster.jpg" alt="32">
+      <img class="zoom-img square" src="images/33.jpg" alt="33">
+      <img class="zoom-img square" src="images/34.jpg" alt="34">
+      <img class="zoom-img square" src="images/35.jpg" alt="35">
+      <img class="zoom-img square" src="images/36.jpg" alt="36">
+    </div>
+
+    <div class="section5-text">
+      <h2>Travel & Tourism Campaigns</h2>
+      <p>
+        Creative travel advertisements, tourism promotions,
+        destination marketing, holiday campaign visuals,
+        and engaging social media creatives.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section last-section">
+  <img class="zoom-img last-hero" src="movie poster cover.png" alt="37">
+
+  <div class="section6-wrap">
+    <div class="section6-text">
+      <h2>Movie Poster Design</h2>
+      <p>
+        Creative cinematic posters, film key visuals,
+        dramatic compositions, and promotional artwork.
+      </p>
+    </div>
+
+    <div class="a4-three">
+      <img class="zoom-img a4" src="images/38.jpg" alt="38">
+      <img class="zoom-img a4" src="images/39.jpg" alt="39">
+      <img class="zoom-img a4" src="images/40.jpg" alt="40">
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div id="lightbox">
+  <span id="close">&times;</span>
+  <img id="lightbox-img" src="" alt="Zoom Image">
+</div>
+
+<script>
+const zoomImages = document.querySelectorAll(".zoom-img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.getElementById("close");
+
+zoomImages.forEach((img) => {
+  img.addEventListener("click", () => {
+    lightbox.style.display = "flex";
+    lightboxImg.src = img.src;
+  });
+});
+
+closeBtn.addEventListener("click", () => {
+  lightbox.style.display = "none";
+  lightboxImg.src = "";
+});
+
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) {
+    lightbox.style.display = "none";
+    lightboxImg.src = "";
+  }
+});
+</script>
+
+</body>
+</html>
